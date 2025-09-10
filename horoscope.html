@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Horoscope | VEDSANGAM</title>
+  <link rel="stylesheet" href="style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9777964864282001"
+     crossorigin="anonymous"></script>
+  <style>
+    body {
+      font-family: 'Karma', serif;
+      background-color: #fff8f0;
+      color: #2f2f2f;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    input, select, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #d97706;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #b45309;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #fef3c7;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔮 आपकी दैनिक राशिफल</h1>
+
+  <div class="container">
+    <input type="text" id="name" placeholder="अपना नाम दर्ज करें" required />
+    <select id="sign" required>
+      <option value="">राशि चुनें</option>
+      <option value="Mesh">मेष</option>
+      <option value="Vrishabh">वृषभ</option>
+      <option value="Mithun">मिथुन</option>
+      <option value="Kark">कर्क</option>
+      <option value="Singh">सिंह</option>
+      <option value="Kanya">कन्या</option>
+      <option value="Tula">तुला</option>
+      <option value="Vrishchik">वृश्चिक</option>
+      <option value="Dhanu">धनु</option>
+      <option value="Makar">मकर</option>
+      <option value="Kumbh">कुंभ</option>
+      <option value="Meen">मीन</option>
+    </select>
+    <button onclick="getHoroscope()">जानिए आज का भविष्य</button>
+
+    <div class="result" id="result" style="display: none;"></div>
+  </div>
+
+  <script>
+    async function getHoroscope() {
+      const name = document.getElementById('name').value;
+      const sign = document.getElementById('sign').value;
+      const resultDiv = document.getElementById('result');
+
+      resultDiv.style.display = 'none';
+      resultDiv.innerHTML = '';
+
+      if (!name || !sign) {
+        alert('कृपया नाम और राशि दोनों भरें');
+        return;
+      }
+
+      try {
+        const res = await fetch('http://localhost:5000/api/horoscope', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, sign })
+        });
+
+        const data = await res.json();
+        if (res.ok) {
+          resultDiv.innerHTML = `<strong>${data.name} (${data.sign}):</strong><br><br>${data.horoscope}`;
+        } else {
+          resultDiv.innerHTML = "❌ कुंडली प्राप्त करने में त्रुटि: " + (data.error || 'Unknown error');
+        }
+        resultDiv.style.display = 'block';
+      } catch (err) {
+        resultDiv.innerHTML = "❌ सर्वर से जुड़ने में त्रुटि";
+        resultDiv.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>

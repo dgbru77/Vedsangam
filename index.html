@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VEDSANGAM | WHERE MATCHES MEET VEDAS</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Karma&family=Tiro+Devanagari+Hindi&display=swap"
+    rel="stylesheet">
+  <link rel="shortcut icon" href="favicon.png" type="image/png">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9777964864282001"
+     crossorigin="anonymous"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Tiro Devanagari Hindi', serif;
+      background-color: #ffffff;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(253, 246, 215, 0.2) 20%, transparent 70%),
+        url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+      background-repeat: repeat;
+      background-size: 600px 600px;
+      animation: rotateBackground 120s linear infinite;
+      z-index: -1;
+      opacity: 0.3;
+    }
+
+    @keyframes rotateBackground {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .hero {
+      width: 100%;
+      padding: 1px 2px;
+      background: linear-gradient(to bottom right, #fbeec1, #fff6e0);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .hero-content {
+      text-align: center;
+    }
+
+    .vedsangam-title {
+      font-family: 'Karma', serif;
+      font-size: 2rem;
+      color: #8B0000;
+      margin-bottom: 1px;
+      border-bottom: 3px solid #d4af37;
+      padding-bottom: 1px;
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .shloka {
+      font-size: 1rem;
+      color: #5a3e36;
+      margin-top: 10px;
+      max-width: 500px;
+      line-height: 1.5rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .shloka::before {
+      content: '“';
+      font-size: 1.8rem;
+      vertical-align: top;
+      color: #d4af37;
+    }
+
+    .shloka::after {
+      content: '”';
+      font-size: 1.8rem;
+      vertical-align: bottom;
+      color: #d4af37;
+    }
+
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      }
+
+      50% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      }
+
+      100% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    .head {
+      position: relative;
+      width: 50%;
+      min-height: 70px;
+      padding: 10px;
+      margin-left: 20%;
+      background: linear-gradient(to bottom right, #fbeec1, #fff6e0);
+      animation: glow 2.5s infinite;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .quote-block {
+      border: 2px solid #d4af37;
+      padding: 25px 30px;
+      margin: 40px 50px;
+      border-radius: 12px;
+      background-color: #fffdf5;
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .quote-left {
+      align-items: center;
+    }
+
+    .quote-left .head,
+    .quote-left h3,
+    .quote-left .para-text {
+      width: 100%;
+      text-align: center;
+      margin-left: 0;
+    }
+
+    .quote-container {
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .quote-text {
+      font-family: 'Karma', serif;
+      color: #505349;
+      font-size: 1.1rem;
+      line-height: 1.6rem;
+      opacity: 1;
+      transition: opacity 1s ease-in-out;
+      margin-left: 38%;
+    }
+
+    .fade-out {
+      opacity: 0;
+    }
+
+    .fade-in {
+      opacity: 1;
+    }
+
+    h3 {
+      font-family: 'Karma', serif;
+      color: #8B0000;
+      font-size: 1.5rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1px;
+      border-bottom: 3px solid #d4af37;
+      padding-bottom: 1px;
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .para-text {
+      font-size: 1rem;
+      color: #444;
+      font-family: 'Tiro Devanagari Hindi', serif;
+      line-height: 1.6rem;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 10vh;
+    }
+
+    .button-group {
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .button-group button {
+      background: linear-gradient(to bottom right, #fbeec1, #fff6e0);
+      border: none;
+      color: #8B0000;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-family: 'Karma', serif;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 6%;
+    }
+
+    .button-group button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar {
+      position: absolute;
+      top: 20px;
+      right: 70px;
+      z-index: 1000;
+    }
+
+    .navbar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 20px;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #8B0000;
+      font-weight: bold;
+      font-size: 1rem;
+      font-family: 'Karma', serif;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      background-color: #fbeec1;
+      color: #d7a605;
+    }
+
+    .para-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      margin: 60px 0;
+      gap: 25px;
+    }
+
+    .vertical-line {
+      width: 2px;
+      background-color: #8B0000;
+      height: auto;
+      margin-top: -1%;
+      margin-bottom: -1%;
+      box-shadow: 0 0 8px rgba(212, 175, 55, 0.2);
+    }
+
+    .para.two,
+    .para.three {
+      width: 35%;
+      padding: 20px 25px;
+      background-color: #fffdf5;
+      border: 2px solid #d4af37;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15);
+      text-align: justify;
+      font-size: 1rem;
+      color: #8B0000;
+      font-family: 'Tiro Devanagari Hindi', serif;
+      line-height: 1.8rem;
+    }
+
+    .slideshow-box {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 60px;
+    }
+
+    .para.two,
+    .para.three {
+      width: 35%;
+      padding: 20px 25px;
+      background-color: #fffdf5;
+      border: 2px solid #d4af37;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15);
+      text-align: justify;
+      font-size: 1rem;
+      color: #8B0000;
+      font-family: 'Tiro Devanagari Hindi', serif;
+      line-height: 1.8rem;
+    }
+
+    .slide-container {
+      width: 600px;
+      height: 300px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
+    }
+
+    .slide-container a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide-container a.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .slide-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    footer a {
+      color: #8B0000;
+    }
+
+    footer a:hover {
+      color: #00008B;
+      /* Dark Blue */
+      text-decoration: underline;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropbtn {
+      cursor: pointer;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fff6e0;
+      min-width: 220px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      border: 1px solid #d4af37;
+      border-radius: 6px;
+      top: 30px;
+    }
+
+    .dropdown-content a {
+      color: #8B0000;
+      padding: 10px 16px;
+      text-decoration: none;
+      display: block;
+      font-family: 'Karma', serif;
+      transition: background-color 0.3s ease;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #fbeec1;
+      color: #00008B;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropbtn {
+      cursor: pointer;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fff6e0;
+      min-width: 220px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      border: 1px solid #d4af37;
+      border-radius: 6px;
+      top: 30px;
+    }
+
+    .dropdown-content a {
+      color: #8B0000;
+      padding: 10px 16px;
+      text-decoration: none;
+      display: block;
+      font-family: 'Karma', serif;
+      transition: background-color 0.3s ease;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #fbeec1;
+      color: #00008B;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .horoscope-btn {
+      background: radial-gradient(circle at top left, #2c3e50, #000428);
+      /* Dark Cosmic Gradient */
+      color: #fbeec1;
+      border: 1px solid #d4af37;
+      box-shadow: 0 0 12px rgba(212, 175, 55, 0.2), 0 0 25px rgba(255, 255, 255, 0.1) inset;
+      font-weight: bold;
+    }
+
+    .horoscope-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3), 0 0 15px rgba(212, 175, 55, 0.3) inset;
+      background: radial-gradient(circle at center, #1b2735, #090a0f);
+      color: #ffd700;
+    }
+    .horoscope-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      font-family: 'Karma', serif;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+      margin-top:-40%;
+      margin-left: 44%;
+      text-decoration: none;
+    }
+   
+  </style>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="vedsangam-title">वेदसंगम</h1>
+      <p class="shloka">सर्वे भवन्तु सुखिनः, सर्वे सन्तु निरामयाः ।</p>
+      <div><img src="Logo1.png" alt="logo" style="width: 150px;height: 150px; margin-left:-400%;margin-top:-2000%">
+      </div>
+    </div>
+    <nav class="navbar">
+      <ul>
+        <li><a href="Blogs.html">Blogs</a></li>
+        <li><a href="About_us.html">About us</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Services</a>
+          <div class="dropdown-content">
+            <a href="kundlimilan.html">Kundli Milan</a>
+           <a href="horoscope.html">Horoscope</a>
+
+
+
+            <a href="tarot.html">Daily Tarot</a>
+            <a href="panchang.html">Panchang</a>
+            <a href="horoscope.html">Daily Prediction</a>
+            <a href="Blogs.html">Blog</a>
+          </div>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Contact Us</a>
+          <div class="dropdown-content">
+<a href="https://mail.google.com/mail/?view=cm&fs=1&to=vedsangaminfo@gmail.com&su=Query%20from%20Vedsangam&body=Namaste%2C%20I%20would%20like%20to%20ask..." target="_blank">
+  <i class="fas fa-envelope"></i> vedsangaminfo@gmail.com
+</a>
+
+
+          </div>
+        </li>
+
+      </ul>
+    </nav>
+  </section>
+
+  <div class="quote-container">
+    <section class="quote-block quote-left">
+      <div class="head">
+        <div class="quote-text" id="dailyQuote">Loading quote...</div>
+      </div>
+      <h3>वेदसंगम | जहाँ मेल होता है वेदों से</h3>
+      <p class="para-text">
+        कुंडली मिलान, गुण मिलान और राशिफल विश्लेषण की एक विश्वसनीय जगह। यह मंच प्राचीन हिन्दू शास्त्रों व आधुनिक तकनीक
+        का संगम है। वैवाहिक मेल हो या आध्यात्मिक सलाह — वेदसंगम हर कदम पर साथ है।
+      </p>
+    </section>
+  </div>
+
+  <section class="buttons">
+    <div class="button-group">
+    
+
+      <a href="kundlimilan.html"><button>Kundli Milan</button></a>
+    
+    <a href="tarot.html"><button>Daily Tarot</button></a>
+
+     <a href="horoscope.html"> <button>Daily Prediction</button></a>
+      <a href="panchang.html">
+  <button>Panchang</button>
+</a>
+    </div>
+  </section>
+<a href="horoscope.html">
+  <button class="horoscope-btn">Horoscope</button>
+</a>
+
+ <h3>Promoted Products||प्रचारित उत्पाद</h3>
+<section class="slideshow-box">
+  <div class="slide-container">
+    <a href="https://www.amazon.in/Vedic-Jyotish-Sutram-Astrology-Beginners/dp/9334278064?pd_rd_w=8cyKy&content-id=amzn1.sym.2fa5ef78-d215-4b54-bdb7-fa3d3620b822&pf_rd_p=2fa5ef78-d215-4b54-bdb7-fa3d3620b822&pf_rd_r=6Y3GCQX3ASJJQDAVBVV4&pd_rd_wg=WU9b6&pd_rd_r=6be5634a-e439-4aa5-8f11-15147fc2dcf3&pd_rd_i=9334278064&psc=1&linkCode=ll1&tag=dgbru77-21&linkId=1a3a1c9767062805753b50e63f7e340c&language=en_IN&ref_=as_li_ss_tl" target="_blank">
+      <img src="https://m.media-amazon.com/images/I/71fihVbQQ7L._SL1280_.jpg" alt="Vedic Jyotish Book" class="slide" />
+    </a>
+  </div>
+</section>
+
+
+  </section>
+  <div class="para-wrapper">
+    <section class="para three">
+      <p class="para-text">
+        Vedsangam is a modern digital platform that offers services based on ancient Vedic astrology. Here, users can
+        benefit from features such as Kundli matching, Guna Milan, daily and yearly horoscopes, and direct consultations
+        with experienced Vedic scholars. This platform serves as a guide for all those seeking astrological advice in
+        making important life decisions. Vedsangam is a unique blend of tradition and technology, where faith, wisdom,
+        and personal experience come together harmoniously.
+      </p>
+    </section>
+
+
+    <div class="vertical-line"></div>
+
+    <section class="para two">
+      <p class="para-text">
+        वेदसंगम एक आधुनिक डिजिटल मंच है जो प्राचीन वैदिक ज्योतिष पर आधारित सेवाएँ प्रदान करता है। यहाँ उपयोगकर्ता कुंडली
+        मिलान, गुण मिलान, दैनिक और वार्षिक राशिफल तथा अनुभवी वेदाचार्यों से सीधा परामर्श जैसी सुविधाओं का लाभ ले सकते
+        हैं। यह मंच उन सभी के लिए एक मार्गदर्शक है जो अपने जीवन के महत्वपूर्ण निर्णयों में ज्योतिषीय मार्गदर्शन चाहते
+        हैं। वेदसंगम परंपरा और तकनीक का ऐसा संगम है जहाँ श्रद्धा, विज्ञान और व्यक्तिगत अनुभव एक साथ मिलते हैं।
+      </p>
+    </section>
+  </div>
+  <script>
+    const quotes = [
+      { text: "धर्मो रक्षति रक्षितः।", meaning: "Dharma protects those who protect it." },
+      { text: "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।", meaning: "You have a right to perform your duty, not to the fruits thereof." },
+      { text: "सा विद्या या विमुक्तये।", meaning: "True knowledge is that which liberates." },
+      { text: "सत्यं वद, धर्मं चर।", meaning: "Speak the truth, follow righteousness." },
+      { text: "वसुधैव कुटुम्बकम्।", meaning: "The world is one family." },
+      { text: "यत्र नार्यस्तु पूज्यन्ते रमन्ते तत्र देवता।", meaning: "Where women are honored, divinity blossoms." },
+      { text: "नियतं कुरु कर्म त्वं।", meaning: "Do your prescribed duty." },
+      { text: "तस्मादसक्तः सततं कार्यं कर्म समाचर।", meaning: "Perform your duties without attachment." },
+      { text: "ज्ञानेन तु तदज्ञानं येषां नाशितमात्मनः।", meaning: "Knowledge destroys ignorance." },
+      { text: "श्रेयान्स्वधर्मो विगुणः परधर्मात्स्वनुष्ठितात्।", meaning: "Better one's own duty, even if flawed, than another's duty well done." }
+    ];
+
+    let index = 0;
+    const quoteElement = document.getElementById("dailyQuote");
+
+    function updateQuote() {
+      quoteElement.classList.add("fade-out");
+      setTimeout(() => {
+        quoteElement.innerHTML = `
+          ${quotes[index].text}<br>
+          <i style="font-size: 0.9rem; color: #444;">"${quotes[index].meaning}"</i>
+        `;
+        index = (index + 1) % quotes.length;
+        quoteElement.classList.remove("fade-out");
+        quoteElement.classList.add("fade-in");
+        setTimeout(() => {
+          quoteElement.classList.remove("fade-in");
+        }, 1000);
+      }, 1000);
+    }
+
+    updateQuote();
+    setInterval(updateQuote, 60000);
+  </script>
+  <script>
+    const slides = document.querySelectorAll('.slide-container a');
+    let current = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+    }
+
+    showSlide(current);
+    setInterval(() => {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }, 5000);
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+  </script>
+  <footer>
+    <div style="text-align: center; padding: 20px; background-color: #fbeec1; color: #8B0000;">
+      <p>&copy; 2025 Vedsangam. All rights reserved.</p>
+      <p>Connect with us on
+        <a href="#" style=" text-decoration: none;">Facebook</a>,
+        <a href="#" style=" text-decoration: none;">Twitter</a>,
+        <a href="#" style=" text-decoration: none;">Instagram</a>
+      </p>
+    </div>
+  </footer>
+</body>
+
+</html>

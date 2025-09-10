@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>दैनिक पंचांग | VEDSANGAM</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Karma', serif;
+      background-color: #fffaf3;
+      color: #333;
+      text-align: center;
+      padding: 30px;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background-color: #ffffff;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    button {
+      background-color: #d97706;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+    }
+    button:hover {
+      background-color: #b45309;
+    }
+    .result {
+      margin-top: 20px;
+      background-color: #fef3c7;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 18px;
+    }
+    .error {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>📅 आज का पंचांग</h1>
+  <div class="container">
+    <input type="text" id="location" placeholder="अपना स्थान दर्ज करें (जैसे: Delhi)" required />
+    <input type="date" id="date" required />
+    <button onclick="getPanchang()">🔍 पंचांग देखें</button>
+    <div class="result" id="result" style="display: none;"></div>
+  </div>
+
+  <script>
+    async function getPanchang() {
+      const location = document.getElementById("location").value.trim();
+      const date = document.getElementById("date").value;
+      const resultDiv = document.getElementById("result");
+
+      resultDiv.style.display = "none";
+      resultDiv.innerHTML = "";
+
+      if (!location || !date) {
+        alert("⚠️ कृपया स्थान और तिथि दोनों भरें");
+        return;
+      }
+
+      try {
+        const res = await fetch("http://localhost:5000/api/panchang", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ location, date })
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          resultDiv.innerHTML = `
+            <strong>📍 ${location} | 📅 ${date}</strong><br><br>
+            <b>🕉 तिथि:</b> ${data.tithi}<br>
+            <b>🔭 नक्षत्र:</b> ${data.nakshatra}<br>
+            <b>⚖ योग:</b> ${data.yoga}<br>
+            <b>🪔 करण:</b> ${data.karana}<br>
+            <b>🌙 चंद्र राशि:</b> ${data.moonSign}<br>
+          `;
+        } else {
+          resultDiv.innerHTML = `<span class="error">❌ त्रुटि: ${data.error || 'पंचांग लोड नहीं हो सका'}</span>`;
+        }
+
+        resultDiv.style.display = "block";
+
+      } catch (err) {
+        resultDiv.innerHTML = `<span class="error">❌ सर्वर से कनेक्ट नहीं हो सका</span>`;
+        resultDiv.style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
